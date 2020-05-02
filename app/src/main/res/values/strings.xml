@@ -5,5 +5,10 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="news_thumnail">News Thumnail</string>
     <string name="title">Korban Korona merajalela di Indonesia</string>
-    <string name="isi">Jakarta, CNN Indonesia -- Menteri Perhubungan Budi Karya Sumadi telah mengikuti rapat terbatas bersama Presiden Joko Widodo (Jokowi) yang digelar tertutup. Rapat dihelat melalui video conference dan sejumlah menteri Kabinet Indonesia Maju, Senin (27/4). terinfeksi virus corona (Covid-19) pada Maret lalu.</string>
+    <string name="isi">Jakarta, CNN Indonesia.  Menteri Perhubungan Budi Karya Sumadi telah mengikuti rapat terbatas bersama Presiden Joko Widodo (Jokowi) yang digelar tertutup. Rapat dihelat melalui video conference dan sejumlah menteri Kabinet Indonesia Maju, Senin (27/4). terinfeksi virus corona (Covid-19) pada Maret lalu.</string>
+    <string name="thumnail_dari_berita">Thumnail dari berita</string>
+    <string name="judul_berita">Judul Berita</string>
+    <string name="author_dari_berita">Author dari Berita</string>
+    <string name="tanggal_rilis_berita">Tanggal Rilis Berita</string>
+    <string name="deskripsi_singkat_berita">Deskripsi Singkat Berita</string>
 </resources>

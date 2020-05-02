@@ -11,15 +11,16 @@ data class News(
     val articles: List<NewsProperty>
 )
 
+@Parcelize
 data class NewsProperty(
     val author: String?,
     val title: String,
-    val description: String,
+    val description: String?,
     val url: String,
-    val urlToImage: String,
+    val urlToImage: String?,
     val publishedAt: String,
     val content: String?
-)
+) : Parcelable
 
 @Parcelize
 data class Source(val id: Int?, val name: String) : Parcelable

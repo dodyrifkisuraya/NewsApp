@@ -31,7 +31,7 @@ class NewsApplication : Application() {
             }.build()
 
         val repeatingRequest
-                = PeriodicWorkRequestBuilder<RefreshDataWork>(1, TimeUnit.DAYS)
+                = PeriodicWorkRequestBuilder<RefreshDataWork>(1, TimeUnit.MINUTES)
             .setConstraints(constraints)
             .build()
 

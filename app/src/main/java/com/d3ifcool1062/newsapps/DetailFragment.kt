@@ -5,6 +5,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
+import androidx.databinding.DataBindingUtil
+import com.d3ifcool1062.newsapps.databinding.FragmentDetailBinding
 
 /**
  * A simple [Fragment] subclass.
@@ -16,7 +19,12 @@ class DetailFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_detail, container, false)
+        val binding : FragmentDetailBinding = DataBindingUtil.inflate(inflater,R.layout.fragment_detail, container, false)
+        val args = arguments?.let { DetailFragmentArgs.fromBundle(it) }
+
+        binding.news = args?.newsProperty
+
+        return binding.root
     }
 
 }

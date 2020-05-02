@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.d3ifcool1062.newsapps.home.HomeFragment"
-        android:label="fragment_home"
+        android:label="News App"
         tools:layout="@layout/fragment_home" >
         <action
             android:id="@+id/action_homeFragment_to_detailFragment"
@@ -17,6 +17,10 @@
     <fragment
         android:id="@+id/detailFragment"
         android:name="com.d3ifcool1062.newsapps.DetailFragment"
-        android:label="fragment_detail"
-        tools:layout="@layout/fragment_detail" />
+        android:label="Detail Berita"
+        tools:layout="@layout/fragment_detail" >
+        <argument
+            android:name="newsProperty"
+            app:argType="com.d3ifcool1062.newsapps.domain.NewsProperty" />
+    </fragment>
 </navigation>

@@ -9,7 +9,7 @@ import com.d3ifcool1062.newsapps.R
 import com.d3ifcool1062.newsapps.databinding.ItemNewsBinding
 import com.d3ifcool1062.newsapps.domain.NewsProperty
 
-class NewsAdapter() : RecyclerView.Adapter<NewsViewHolder>() {
+class NewsAdapter(val clickListener: NewsClickListener) : RecyclerView.Adapter<NewsViewHolder>() {
     var news: List<NewsProperty> = emptyList()
     set(value){
         field = value
@@ -31,13 +31,23 @@ class NewsAdapter() : RecyclerView.Adapter<NewsViewHolder>() {
     override fun onBindViewHolder(holder: NewsViewHolder, position: Int) {
         holder.bind.also {
             it.news = news[position]
+            it.clickListener = clickListener
         }
+        holder.bind(clickListener)
     }
+
+}
+
+class NewsClickListener(val clickListener: (news : NewsProperty) -> Unit){
+    fun onClick(news: NewsProperty) = clickListener(news)
 }
 
 class NewsViewHolder(val bind : ItemNewsBinding): RecyclerView.ViewHolder(bind.root){
     companion object{
         @LayoutRes
         val LAYOUT = R.layout.item_news
+    }
+    fun bind(clickListener: NewsClickListener){
+        bind.clickListener = clickListener
     }
 }

@@ -22,7 +22,7 @@ class NewsRepository(private val database: NewsDatabase) {
     suspend fun refreshNews() {
         withContext(Dispatchers.IO) {
             val dataListNews = NewsAPI.retrofitService.getPropertyNetwork().await()
-
+            database.newsDao.deleteAll()
             for (item in dataListNews.articles){
                 database.newsDao.insertAll(item.asDatabaseModel())
             }
