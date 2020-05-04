@@ -19,6 +19,7 @@ import com.d3ifcool1062.newsapps.domain.NewsProperty
  */
 class HomeFragment : Fragment() {
 
+    //Initialize ViewModel
     private val viewModel: HomeViewModel by lazy {
         val activity = requireNotNull(this.activity) {
             "You can only access the viewModel after onActivityCreated()"
@@ -27,10 +28,13 @@ class HomeFragment : Fragment() {
             .get(HomeViewModel::class.java)
     }
 
+    //Initialize item Adapter Recycleview
     private var viewModelAdapter: NewsAdapter? = null
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+
+        //Input LiveData(List<News>) to Adapter
         viewModel.listNews.observe(viewLifecycleOwner, Observer<List<NewsProperty>> {
             it?.apply {
                 viewModelAdapter?.news = it
@@ -67,6 +71,7 @@ class HomeFragment : Fragment() {
             viewModel.onItemSelected(news)
         })
 
+        //Setting RecycleView layoutManager and Adapter
         binding.rvRegular.apply {
             setHasFixedSize(true)
             layoutManager = LinearLayoutManager(context)

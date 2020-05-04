@@ -12,7 +12,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".DetailFragment">
+        tools:context=".detail.DetailFragment">
 
         <ScrollView
             android:layout_width="match_parent"
@@ -57,7 +57,7 @@
                     android:paddingEnd="12dp"
                     android:contentDescription="@string/tanggal_rilis_berita"
                     android:text="@{news.publishedAt}"
-                    tools:text="7 Maret 2020 "
+                    tools:text="@string/tgl_dummy"
                     android:textSize="16sp"
                     android:textStyle="bold" />
 

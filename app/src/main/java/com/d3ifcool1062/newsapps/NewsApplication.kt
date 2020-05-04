@@ -30,6 +30,7 @@ class NewsApplication : Application() {
                 }
             }.build()
 
+        //Periodik get Data From Web Server
         val repeatingRequest
                 = PeriodicWorkRequestBuilder<RefreshDataWork>(1, TimeUnit.MINUTES)
             .setConstraints(constraints)

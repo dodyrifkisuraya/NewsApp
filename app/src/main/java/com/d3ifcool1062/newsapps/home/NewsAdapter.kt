@@ -10,44 +10,47 @@ import com.d3ifcool1062.newsapps.databinding.ItemNewsBinding
 import com.d3ifcool1062.newsapps.domain.NewsProperty
 
 class NewsAdapter(val clickListener: NewsClickListener) : RecyclerView.Adapter<NewsViewHolder>() {
-    var news: List<NewsProperty> = emptyList()
-    set(value){
-        field = value
 
-        notifyDataSetChanged()
-    }
+    //Initiialize List NewsProperty
+    var news: List<NewsProperty> = emptyList()
+        set(value) {
+            field = value
+            notifyDataSetChanged()
+        }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NewsViewHolder {
-        val withDataBinding : ItemNewsBinding = DataBindingUtil.inflate(
+        //Inflate itemNews for this Adapter
+        val withDataBinding: ItemNewsBinding = DataBindingUtil.inflate(
             LayoutInflater.from(parent.context),
             NewsViewHolder.LAYOUT,
             parent,
-            false)
+            false
+        )
         return NewsViewHolder(withDataBinding)
     }
 
     override fun getItemCount() = news.size
 
+    //Bind Item News to each Item layout
     override fun onBindViewHolder(holder: NewsViewHolder, position: Int) {
         holder.bind.also {
             it.news = news[position]
             it.clickListener = clickListener
         }
-        holder.bind(clickListener)
     }
 
 }
 
-class NewsClickListener(val clickListener: (news : NewsProperty) -> Unit){
+//Click Listener for passing data news
+class NewsClickListener(val clickListener: (news: NewsProperty) -> Unit) {
     fun onClick(news: NewsProperty) = clickListener(news)
 }
 
-class NewsViewHolder(val bind : ItemNewsBinding): RecyclerView.ViewHolder(bind.root){
-    companion object{
+
+//Holder layout property from item_layout
+class NewsViewHolder(val bind: ItemNewsBinding) : RecyclerView.ViewHolder(bind.root) {
+    companion object {
         @LayoutRes
         val LAYOUT = R.layout.item_news
-    }
-    fun bind(clickListener: NewsClickListener){
-        bind.clickListener = clickListener
     }
 }

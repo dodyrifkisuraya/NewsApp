@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/detailFragment"
-        android:name="com.d3ifcool1062.newsapps.DetailFragment"
+        android:name="com.d3ifcool1062.newsapps.detail.DetailFragment"
         android:label="Detail Berita"
         tools:layout="@layout/fragment_detail" >
         <argument

@@ -14,6 +14,7 @@ class RefreshDataWork(context: Context, params : WorkerParameters):
         const val WORK_NAME = "RefreshDataWorker"
     }
 
+    //WorkManager
     override suspend fun doWork(): Result {
         val database = getDatabase(applicationContext)
         val repository = NewsRepository(database)

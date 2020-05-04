@@ -1,6 +1,5 @@
 package com.d3ifcool1062.newsapps.repository
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Transformations
 import com.d3ifcool1062.newsapps.database.NewsDatabase
@@ -13,17 +12,20 @@ import kotlinx.coroutines.withContext
 
 class NewsRepository(private val database: NewsDatabase) {
 
+    //Variabel to save LiveData<List<NewsProperty>>
+    //Main Data
     val news: LiveData<List<NewsProperty>> = Transformations.map(
         database.newsDao.getNews()
     ) {
         it.asDomainModel()
     }
 
+    //Refresh Room Database
     suspend fun refreshNews() {
         withContext(Dispatchers.IO) {
             val dataListNews = NewsAPI.retrofitService.getPropertyNetwork().await()
             database.newsDao.deleteAll()
-            for (item in dataListNews.articles){
+            for (item in dataListNews.articles) {
                 database.newsDao.insertAll(item.asDatabaseModel())
             }
 

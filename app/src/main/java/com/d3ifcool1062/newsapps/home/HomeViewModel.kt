@@ -14,7 +14,7 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
 
     //Navigate To Detail
     private val _navigateToDetailNews = MutableLiveData<NewsProperty>()
-    val navigateToDetailNews : LiveData<NewsProperty> get() = _navigateToDetailNews
+    val navigateToDetailNews: LiveData<NewsProperty> get() = _navigateToDetailNews
 
     //Corountine
     private val viewModelJob = SupervisorJob()
@@ -40,14 +40,17 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
         viewModelJob.cancel()
     }
 
-    fun onItemSelected(newsProperty: NewsProperty){
+    //when click item news, they send object news to other fragment
+    fun onItemSelected(newsProperty: NewsProperty) {
         _navigateToDetailNews.value = newsProperty
     }
 
-    fun onFinishItemSelected(){
+    //After finish to navigate
+    fun onFinishItemSelected() {
         _navigateToDetailNews.value = null
     }
 
+    //Factory from ViewModel
     class Factory(val app: Application) : ViewModelProvider.Factory {
         override fun <T : ViewModel?> create(modelClass: Class<T>): T {
             if (modelClass.isAssignableFrom(HomeViewModel::class.java)) {
