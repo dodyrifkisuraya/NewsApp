@@ -19,7 +19,7 @@ class RefreshDataWork(context: Context, params : WorkerParameters):
         val database = getDatabase(applicationContext)
         val repository = NewsRepository(database)
         return try {
-            repository.refreshNews()
+            repository.addToRoom("")
             Result.success()
         }catch (e: HttpException){
             Result.failure()

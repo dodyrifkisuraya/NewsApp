@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="viewModel"
             type="com.d3ifcool1062.newsapps.home.HomeViewModel" />
@@ -26,14 +27,89 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
+                <TextView
+                    android:id="@+id/top_hight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:text="Top Hightlight"
+                    android:textColor="@color/design_default_color_primary"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_general"
+                    android:layout_width="match_parent"
+                    android:layout_height="170dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    app:layout_constraintBottom_toTopOf="@+id/scrollView"
+                    app:layout_constraintTop_toBottomOf="@+id/top_hight"
+                    tools:listitem="@layout/item_general_news" />
+
+                <HorizontalScrollView
+                    android:id="@+id/scrollView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="24dp"
+                    app:layout_constraintBottom_toTopOf="@id/rv_regular"
+                    app:layout_constraintTop_toBottomOf="@id/rv_general">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:id="@+id/ctgr_technology"
+                            style="@style/ActiveButton"
+                            android:text="Technology" />
+
+                        <Button
+                            android:id="@+id/ctgr_business"
+                            style="@style/NoActiveButton"
+                            android:text="Business" />
+
+                        <Button
+                            android:id="@+id/ctgr_Entertain"
+                            style="@style/NoActiveButton"
+                            android:text="Entertain" />
+
+                        <Button
+                            android:id="@+id/ctgr_health"
+                            style="@style/NoActiveButton"
+                            android:text="Health" />
+
+                        <Button
+                            android:id="@+id/ctgr_science"
+                            style="@style/NoActiveButton"
+                            android:text="Science" />
+
+                        <Button
+                            android:id="@+id/ctgr_Sport"
+                            style="@style/NoActiveButton"
+                            android:text="Sport" />
+
+
+                    </LinearLayout>
+
+                </HorizontalScrollView>
+
+
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rv_regular"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:clipToPadding="false"
+                    android:layout_marginTop="16dp"
+                    android:nestedScrollingEnabled="false"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/scrollView"
                     tools:listitem="@layout/item_news" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 

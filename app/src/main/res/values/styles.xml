@@ -8,4 +8,23 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="CategoryBotton">
+        <item name="android:layout_width">100dp</item>
+        <item name="android:layout_height">30dp</item>
+        <item name="android:layout_marginEnd">8dp</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+    <style name="ActiveButton" parent="CategoryBotton">
+        <item name="android:background">@drawable/active</item>
+        <item name="android:textColor">@color/light_grey2</item>
+    </style>
+
+    <style name="NoActiveButton" parent="CategoryBotton">
+        <item name="android:background">@drawable/no_active</item>
+        <item name="android:textColor">@color/light_grey2</item>
+    </style>
+
 </resources>

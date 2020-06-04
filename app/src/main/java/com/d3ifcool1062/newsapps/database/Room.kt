@@ -8,13 +8,19 @@ import androidx.room.*
 @Dao
 interface NewsDao {
     @Query("SELECT * FROM databasenews")
-    fun getNews(): LiveData<List<DatabaseNews>>
+    fun getAllNews(): LiveData<List<DatabaseNews>>
+
+    @Query("SELECT * FROM databasenews WHERE category = :categori")
+    fun getCategory(categori: String) : LiveData<List<DatabaseNews>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertAll(vararg news: DatabaseNews)
 
     @Query("DELETE FROM databasenews")
     fun deleteAll()
+
+    @Query("DELETE FROM databasenews WHERE category = :categori")
+    fun deleteCategory(categori : String)
 }
 
 //Initialize Room Database

@@ -1,10 +1,13 @@
 package com.d3ifcool1062.newsapps.detail
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.d3ifcool1062.newsapps.R
 import com.d3ifcool1062.newsapps.databinding.FragmentDetailBinding
@@ -27,7 +30,12 @@ class DetailFragment : Fragment() {
             )
         }
 
+        (activity as AppCompatActivity?)!!.supportActionBar!!.show()
+
         binding.news = args?.newsProperty
+        binding.btnRead.setOnClickListener {
+            startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(args?.newsProperty?.url)))
+        }
 
         return binding.root
     }

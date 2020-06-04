@@ -12,4 +12,5 @@
     <string name="tanggal_rilis_berita">Tanggal Rilis Berita</string>
     <string name="deskripsi_singkat_berita">Deskripsi Singkat Berita</string>
     <string name="tgl_dummy">7 Maret 2020</string>
+    <string name="item_artikel_berita">Item Artikel Berita</string>
 </resources>

@@ -16,6 +16,7 @@ data class NewsProperty(
     val title: String,
     val description: String?,
     val url: String,
+    var category : String?,
     val urlToImage: String?,
     val publishedAt: String,
     val content: String?
@@ -30,6 +31,7 @@ fun NewsProperty.asDatabaseModel(): DatabaseNews {
         url = this.url,
         urlToImage = this.urlToImage,
         publishedAt = this.publishedAt,
-        content = this.content
+        content = this.content,
+        category = this.category
     )
 }

@@ -28,12 +28,24 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
 
     init {
         coroutineScope.launch {
-            newsRepository.refreshNews()
+            newsRepository.addToRoom("")
+            newsRepository.addToRoom("technology")
+            newsRepository.addToRoom("entertainment")
+            newsRepository.addToRoom("business")
+            newsRepository.addToRoom("health")
+            newsRepository.addToRoom("science")
+            newsRepository.addToRoom("sports")
         }
     }
 
     //Input Data From Room to LiveData(bind to Layout)
-    val listNews = newsRepository.news
+    val listNewsTechnology = newsRepository.newsTechnology
+    val listNewsGeneral = newsRepository.newsGeneral
+    val listEntertain = newsRepository.newsEntertainment
+    val listBusiness = newsRepository.newsBusiness
+    val listHealth = newsRepository.newsBusiness
+    val listScience = newsRepository.newsScience
+    val listSport = newsRepository.newsSports
 
     override fun onCleared() {
         super.onCleared()

@@ -13,7 +13,8 @@ class DatabaseNews constructor(
     val description: String?,
     val urlToImage: String?,
     val publishedAt: String,
-    val content: String?
+    val content: String?,
+    val category : String?
 )
 
 //Convert List DatabaseNews to List NewsProperty
@@ -26,7 +27,8 @@ fun List<DatabaseNews>.asDomainModel(): List<NewsProperty> {
             description = it.description,
             urlToImage = it.urlToImage,
             publishedAt = it.publishedAt,
-            content = it.content
+            content = it.content,
+            category = it.category
         )
     }
 }
